@@ -9,3 +9,5 @@
 * RMAT graph generator (Copyright (C) 2010 Mahantesh Halappanavar)
 
 ### Installation
+Following are the steps to setup RMAT network and real network for running Dynamic SSSP and Galois
+1.Compile RMAT graph generator
