@@ -3,6 +3,8 @@
 ## Getting Started
 First, follow the installation instructions in the [README](README.md)
 
+For the analysis scripts, you will need a Python (2 or 3) installation that also has the Seaborn module (for plotting).
+
 ### Datasets for the experiments
 
 Following are the steps to setup RMAT network and real network for running Dynamic SSSP and Galois
