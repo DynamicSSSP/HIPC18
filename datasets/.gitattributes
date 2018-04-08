@@ -1,0 +1,2 @@
+sc18-graphs.large.tar.gz filter=lfs diff=lfs merge=lfs -text
+sc18-graphs.tar.gz filter=lfs diff=lfs merge=lfs -text
