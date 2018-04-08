@@ -19,4 +19,3 @@ Following are the steps to setup RMAT network and real network for running Dynam
 "wget https://snap.stanford.edu/data/com-LiveJournal.html", "wget https://snap.stanford.edu/data/com-Youtube.html", and "https://snap.stanford.edu/data/soc-pokec.html"
 4.After getting the networks from step3, unzip all the networks.  
 
-+-
