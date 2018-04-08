@@ -15,7 +15,9 @@ Following are the steps to setup RMAT network and real network for running Dynam
 2. Generate RMAT networks for scale 24 for different probablities, by issuing following commands 
 "./driverForRmat 24 24 0.25 0.25 0.25 0.25 data/RMAT24.er"
 "./driverForRmat 24 24 0.45 0.15 0.15 0.25 data/RMAT24.gr"
+
 3. For real world networks (https://snap.stanford.edu/data/), following command was used from unix machine-
 "wget https://snap.stanford.edu/data/com-LiveJournal.html", "wget https://snap.stanford.edu/data/com-Youtube.html", and "https://snap.stanford.edu/data/soc-pokec.html"
+
 4.After getting the networks from step3, unzip all the networks.  
 
