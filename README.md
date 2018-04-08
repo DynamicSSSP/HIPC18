@@ -10,7 +10,8 @@
 
 ### Installation
 Following are the steps to setup RMAT network and real network for running Dynamic SSSP and Galois
-1.Compile RMAT graph generator by issuing "make" command (without quotes).
+1. Compile RMAT graph generator by issuing "make" command (without quotes).
+
 2. Generate RMAT networks for scale 24 for different probablities, by issuing following commands 
 "./driverForRmat 24 24 0.25 0.25 0.25 0.25 data/RMAT24.er"
 "./driverForRmat 24 24 0.45 0.15 0.15 0.25 data/RMAT24.gr"
