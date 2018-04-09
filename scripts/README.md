@@ -4,7 +4,7 @@ To execute:
   
   Run K Spark workers using $SPARK_HOME/sbin/start-slave.sh 
   
-  Run ./sssp.sh with appropriate parameters
+  Run ./ssspinc.sh or ./ssspbase.sh with appropriate arguments (arguments to the ssspinc and ssspbase are the same)
   
 Example: 
   suppose master hostname is "192.168.0.1",
