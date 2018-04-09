@@ -10,3 +10,13 @@
 #### Included in this repository:
 * RMAT graph generator (Copyright (C) 2010 Mahantesh Halappanavar)
 
+## Compiling
+
+### Shared-memory SSSP update code
+
+To build the shared-memory code, go to the SSSP/SSSPshmem directory and type make. You may need to adjust the Makefile for your compiler if you do not have g++.
+
+### Distributed-memory SSSP update code
+
+
+
