@@ -1,8 +1,8 @@
 #Change thos line to a different location if needed
 ESSENS=../ESSENS
 
-CXX=/opt/local/bin/g++
-CXXFLAGS=-g -W  -fopenmp -Wall -O2
+CXX=g++
+CXXFLAGS=-g -fopenmp -O2
 
 #Including BASIC_IO
 BASIC_IO= $(ESSENS)/Core/Basic_IO
