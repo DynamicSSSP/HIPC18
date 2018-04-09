@@ -18,15 +18,14 @@ To execute:
   
 Example: 
   suppose master hostname is "192.168.0.1",
-  input graph is "graph1",
-  output shortest path is "path1",
+  input graph is "karate.txt",
+  output shortest path is "paths",
   log file path is "log",
-  new edges is "edge1",
+  new edges is "karate_10-changes.txt",
   source vertex of sssp is 1, and
   maximum number of supersteps is 5. Then we can run the ssspinc algorithm using:
   
-  
-    bash ssspinc.sh 192.168.0.1 graph1 path1 log edge1 5 1  
+    bash ssspinc.sh 192.168.0.1 ../datasets/karate.txt paths log ../datasets/karate_10-changes.txt 5 1  
 
 
   
