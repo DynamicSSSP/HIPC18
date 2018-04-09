@@ -6,9 +6,13 @@ To execute:
 
     export SPARK_HOME=/path/to/spark-1.2.6
 
-  Run Spark master using $SPARK_HOME/sbin/start-master.sh 
+  Run Spark master:
+    
+    $SPARK_HOME/sbin/start-master.sh 
   
-  Run K Spark workers using $SPARK_HOME/sbin/start-slave.sh 
+  Run K Spark workers: 
+    
+    $SPARK_HOME/sbin/start-slave.sh 
   
   Run ./ssspinc.sh or ./ssspbase.sh with appropriate arguments (arguments to the ssspinc and ssspbase are the same)
   
@@ -22,7 +26,7 @@ Example:
   maximum number of supersteps is 5. Then we can run the ssspinc algorithm using:
   
   
-  bash ssspinc.sh 192.168.0.1 graph1 path1 log edge1 5 1  
+  `bash ssspinc.sh 192.168.0.1 graph1 path1 log edge1 5 1  
 
 
   
