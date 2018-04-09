@@ -1,7 +1,9 @@
 To execute:
+
   Download https://archive.apache.org/dist/spark/spark-1.6.2/spark-1.6.2-bin-hadoop2.6.tgz
   
   Set SPARK_HOME to the home directory of Spark-1.6-2
+
   export SPARK_HOME=/path/to/spark-1.2.6
 
   Run Spark master using $SPARK_HOME/sbin/start-master.sh 
