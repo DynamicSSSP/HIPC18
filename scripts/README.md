@@ -1,6 +1,9 @@
 To execute:
+
   Run Spark master using $SPARK_HOME/sbin/start-master.sh 
+  
   Run K Spark workers using $SPARK_HOME/sbin/start-slave.sh 
+  
   Run ./sssp.sh with appropriate parameters
   
 Example: 
