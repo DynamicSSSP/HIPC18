@@ -12,7 +12,7 @@ To execute:
   
   Run K Spark workers: 
     
-    $SPARK_HOME/sbin/start-slave.sh <master-hostname>
+    $SPARK_HOME/sbin/start-slave.sh master-hostname:7077
   
   Run ./ssspinc.sh or ./ssspbase.sh with appropriate arguments (arguments to the ssspinc and ssspbase are the same)
   
