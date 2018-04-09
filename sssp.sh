@@ -1,3 +1,5 @@
+#!/bin/sh
+
 hostname=$1
 inputGraph=$2
 outputSP=$3
