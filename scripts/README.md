@@ -13,7 +13,7 @@ Example:
   maximum number of supersteps is 5. Then we can run the ssspinc algorithm using:
   
   
-  ./sssp.sh 192.168.0.1 graph1 path1 log edge1 5 1  
+  ./ssspinc.sh 192.168.0.1 graph1 path1 log edge1 5 1  
 
 
   
