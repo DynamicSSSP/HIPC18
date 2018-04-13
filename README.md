@@ -19,7 +19,7 @@ To build the shared-memory code, go to the SSSP/SSSPshmem directory and type mak
 
 ### Distributed-memory SSSP update code
 
-A prebuild of the scala code is provided in the scripts directory. 
+A prebuild of the scala code is provided in the scripts directory. To run the code follow the readMe file in the scripts directory.
 
 
 
