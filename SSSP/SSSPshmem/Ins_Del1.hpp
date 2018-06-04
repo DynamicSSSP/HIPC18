@@ -13,8 +13,9 @@ using namespace std;
 //All Edges to be deleted from Key edges will be deleted, and their Parents and Edge weights updated
 //All Edges to be deleted from Remainder Edges will be marked as deleted
 //The rest of the nodes may not be updated.
-void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *maxW, int p)
+void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *maxW, int *te, int p)
 {
+    
     vector<int> Edgedone;
     vector<double> UpdatedDist;
 
@@ -27,7 +28,8 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
         //Store the updated distance value
         UpdatedDist.clear();
         UpdatedDist.resize(X->size(),0.0);
-        
+
+     printf("%d %d:%d \n", UpdatedDist.size(), SSSP->size(),X->size());        
         //Initialize with current distance for each node
        #pragma omp parallel for num_threads(p)
         for(int i=0; i<X->size(); i++)
@@ -51,13 +53,18 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
         /***Conditions for ignoring edges to insert ***/
         
         //check if edge not same tree--then do not insert
-        if(SSSP->at(mye.node1).Root != SSSP->at(mye.node2).Root)
+        if(mye.node1>X->size()||mye.node2>X->size())
         { Edgedone[xe]=0; //mark to not add
             continue;}
-        
+  
+ if(SSSP->at(mye.node1).Root != SSSP->at(mye.node2).Root)
+        { Edgedone[xe]=0; //mark to not add
+            continue;}      
         /*** End of conditions to ignore ***/
+       
         
-        
+
+
         //if insert
         if(myxE.inst==1)
         {
@@ -67,7 +74,20 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
             //Default is remainder edge
             Edgedone[xe]=2;
     
-            
+           //Check if edge exists--then dont insert 
+                for(int k=0;k<X->at(mye.node1).ListW.size();k++)
+                {
+                    //TEPS:
+                    *te=*te+1;
+                    int myn=X->at(mye.node1).ListW[k].first;
+                    if(myn==mye.node2)
+                    {
+                        break;
+                    }
+                   continue; 
+                }//end of for
+
+
             //Check twice once for  n1->n2 and once for n2->n1
             for(int yy=0;yy<2;yy++)
             {
@@ -134,6 +154,8 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
             
                 for(int k=0;k<X->at(mye.node1).ListW.size();k++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                     int myn=X->at(mye.node1).ListW[k].first;
                     if(myn==mye.node2)
                     {
@@ -145,6 +167,8 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
                 
                 for(int k=0;k<X->at(mye.node2).ListW.size();k++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                     int myn=X->at(mye.node2).ListW[k].first;
                     if(myn==mye.node1)
                     {
@@ -163,6 +187,8 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
                 
                 for(int k=0;k<R->at(mye.node1).ListW.size();k++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                     int myn=R->at(mye.node1).ListW[k].first;
                      if(myn==mye.node2)
                      {
@@ -174,6 +200,8 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
                 
                 for(int k=0;k<R->at(mye.node2).ListW.size();k++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                     int myn=R->at(mye.node2).ListW[k].first;
                     if(myn==mye.node1)
                     {
@@ -250,7 +278,7 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
                 {Edgedone[xe]=1;}
                
                 //Check if correct edge wt was written--mark edge to be added
-                if( (SSSP->at(node1).Parent==node2) && (SSSP->at(node1).EDGwt!=mye.edge_wt))
+                if( (SSSP->at(node1).Parent==node2) && (SSSP->at(node1).EDGwt>mye.edge_wt))
                    {Edgedone[xe]=1;}
                 
                    
@@ -299,7 +327,7 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
             SSSP->at(i).Update=true;}
     }
     
-    
+   printf("%d--\n", *te); 
     return;
 }
 /**** End of Function*****/
@@ -311,7 +339,7 @@ void edge_update(vector<xEdge> *allChange, A_Network *X,vector<RT_Vertex> *SSSP,
 //At the end of this function  the distance of other vertices that were affected by the insertion and deletion will be updated.
 //The disconnected parts will remain disconnected
 
-void rest_update(A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *maxW, int p)
+void rest_update(A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *maxW, int *te, int p)
 {
 
         int nodes=X->size();
@@ -360,6 +388,8 @@ void rest_update(A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *max
                 //For its nieghbors in X
                 for(int j=0;j<X->at(i).ListW.size();j++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                     int myn=X->at(i).ListW[j].first;
                     double mywt=X->at(i).ListW[j].second;
                     
@@ -438,6 +468,8 @@ void rest_update(A_Network *X,vector<RT_Vertex> *SSSP, A_Network *R, double *max
                //for(int j=0;j<SSSP->at(i).PossN.size();j++)
                 for(int j=0;j<R->at(i).ListW.size();j++)
                 {
+                    //TEPS:
+                    *te=*te+1;
                    // int k=SSSP->at(i).PossN[j];
                     int k=j;
                     

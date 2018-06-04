@@ -113,7 +113,7 @@ int degree;
 //The Rooted tree is a vector of structure RT_Vertex;
 
 
-void printRT(int i, RT_Vertex *RT, A_Network *R)
+/*void printRT(int i, RT_Vertex *RT, A_Network *R)
 {
 printf("Root:%d; Parent:%d; EDGwt:%f; Level:%d; Dist%f PossN:%d \n", RT->Root, RT->Parent, RT->EDGwt, RT->Level, RT->Dist, RT->PossN.size());
     
@@ -127,7 +127,7 @@ printf("Root:%d; Parent:%d; EDGwt:%f; Level:%d; Dist%f PossN:%d \n", RT->Root, R
     
     }
     printf("\n");
-}
+}*/
 
 
 //Structure of Edge with level
