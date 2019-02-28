@@ -7,6 +7,23 @@
 using namespace std;
 
 
+void readin_SCC(char *file, vector<SCC_vertex>*SCC)
+{
+
+    FILE *graph_file;
+    char line[128];
+    SCC_vertex myedge;
+
+    graph_file=fopen(file, "r");
+    while(fgets(line,128,graph_file) != NULL)
+    {
+        sscanf(line,"%d %d ",&myedge.node,&myedge.sccID);
+        SCC->push_back(myedge);
+
+    }
+    fclose(graph_file);
+}
+
 
 void readin_changes(char *myfile,  vector<xEdge> *allChange)
 {

@@ -74,6 +74,14 @@ void dummy_edge(Edge *mye)
 
 
 
+struct SCC_vertex
+{
+    int node;
+    int sccID;
+    void clear()
+    {}
+};
+
 
 // Data Structure for each vertex in the rooted tree
 struct RT_Vertex

@@ -30,11 +30,11 @@ return answer;
 /*!
  \brief Check whether input is double
  */
-bool check_double(std::string const& s) {
-	std::istringstream ss(s);
-	double d;
-	return (ss >> d);
-}
+//bool check_double(std::string const& s) {
+//	std::istringstream ss(s);
+//	double d;
+//	return (ss >> d);
+//}
 /*** End of Function ***/
 
 /******** End of All  Functions ************/
